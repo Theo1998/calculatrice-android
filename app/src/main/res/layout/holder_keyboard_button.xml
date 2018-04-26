@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holder_keyboard_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_keyboard_num_button"
+    app:layout_constraintDimensionRatio="1:1"
+    tools:layout_height="128dp"
+    tools:layout_width="128dp">
+
+    <Button
+        android:id="@+id/holder_keyboard_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTransparent"
+        android:elevation="1dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/colorWhite"
+        android:textSize="64sp"
+        tools:text="1" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.HomeActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_home_guideline_h125"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.125" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_home_guideline_h25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/activity_home_guideline_h125"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/activity_home_operation_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="end|bottom"
+            android:paddingBottom="8dp"
+            android:paddingEnd="32dp"
+            android:paddingStart="16dp"
+            android:textSize="60sp"
+            tools:text="2+2+2+2+2+2" />
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/activity_home_result_text_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="end|bottom"
+        android:paddingBottom="16dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@id/activity_home_guideline_h25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_home_guideline_h125"
+        tools:text="12" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/activity_home_coordinator_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_home_guideline_h25" />
+
+</android.support.constraint.ConstraintLayout>

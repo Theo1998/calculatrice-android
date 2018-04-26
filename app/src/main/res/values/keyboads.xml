@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="primary_keyboard_input">
+
+        <item name="seven">7</item>
+        <item name="eight">8</item>
+        <item name="nine">9</item>
+        <item name="plus">+</item>
+
+        <item name="four">4</item>
+        <item name="five">5</item>
+        <item name="six">6</item>
+        <item name="minus">-</item>
+
+        <item name="one">1</item>
+        <item name="two">2</item>
+        <item name="three">3</item>
+        <item name="multiply">×</item>
+
+        <item name="zero">0</item>
+        <item name="dot">.</item>
+        <item name="equal">=</item>
+        <item name="divide">÷</item>
+    </string-array>
+
+    <string-array name="primary_keyboard_reference">
+
+        <item name="seven">7</item>
+        <item name="eight">8</item>
+        <item name="nine">9</item>
+        <item name="plus">+</item>
+
+        <item name="four">4</item>
+        <item name="five">5</item>
+        <item name="six">6</item>
+        <item name="minus">-</item>
+
+        <item name="one">1</item>
+        <item name="two">2</item>
+        <item name="three">3</item>
+        <item name="multiply">*</item>
+
+        <item name="zero">0</item>
+        <item name="dot">.</item>
+        <item name="equal">=</item>
+        <item name="divide">/</item>
+    </string-array>
+
+</resources>

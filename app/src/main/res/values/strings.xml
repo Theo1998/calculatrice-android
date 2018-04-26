@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calculator</string>
+
+    <string name="error_keyboard_loading">An error occurred during keyboard loading</string>
+
+    <string name="debug_nice">Nice !!!</string>
+</resources>
