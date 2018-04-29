@@ -3,17 +3,17 @@ package com.aearphen.calculatrice.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.aearphen.calculatrice.R;
 import com.aearphen.calculatrice.base.fragment.BaseFragment;
 import com.aearphen.calculatrice.data.model.KeyboardInput;
 import com.aearphen.calculatrice.ui.adapter.KeyboardAdapter;
-import com.aearphen.calculatrice.ui.listener.SwipeListener;
 import com.aearphen.calculatrice.ui.presenter.KeyboardPresenter;
 import com.aearphen.calculatrice.ui.view.KeyboardView;
 
@@ -21,6 +21,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 /**
  * Created by Aearphen on 26/04/18.
@@ -30,10 +32,11 @@ public class KeyboardFragment extends BaseFragment<KeyboardPresenter> implements
     public static final int PRIMARY = 0;
     public static final int SECONDARY = 1;
     private static final String BUNDLE_KEY_TYPE = "bundle_key_type";
+    private static final String TAG = "KeyboardFragment";
 
     @BindView(R.id.fragment_keyboard_gridview)
     GridView keyboardGridView;
-    KeyboardAdapter adapter;
+    private KeyboardAdapter adapter;
     private int currentType = PRIMARY;
 
     public static KeyboardFragment newInstance(int type) {
@@ -54,27 +57,6 @@ public class KeyboardFragment extends BaseFragment<KeyboardPresenter> implements
         ButterKnife.bind(this, view);
         adapter = new KeyboardAdapter(context);
         keyboardGridView.setAdapter(adapter);
-        view.setOnTouchListener(new SwipeListener(context) {
-            @Override
-            protected void onSwipeLeft() {
-                Toast.makeText(context, "SwipLeft", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            protected void onSwipeRight() {
-                Toast.makeText(context, "SwipeRight", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            protected void onSwipeTop() {
-
-            }
-
-            @Override
-            protected void onSwipeBottom() {
-
-            }
-        });
         return view;
     }
 
@@ -84,12 +66,17 @@ public class KeyboardFragment extends BaseFragment<KeyboardPresenter> implements
     }
 
     @Override
-    public void updateKeyboad(List<KeyboardInput> keyboardInputs) {
+    public void updateKeyboard(List<KeyboardInput> keyboardInputs) {
         adapter.notifyDataSetChanged(keyboardInputs);
     }
 
     @Override
     public int getCurrentType() {
         return currentType;
+    }
+
+    @OnItemClick(R.id.fragment_keyboard_gridview)
+    void onInputClick(int position) {
+        presenter.computeInput((KeyboardInput) adapter.getItem(position));
     }
 }

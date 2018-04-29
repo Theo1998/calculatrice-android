@@ -37,7 +37,8 @@
             android:paddingBottom="8dp"
             android:paddingEnd="32dp"
             android:paddingStart="16dp"
-            android:textSize="60sp"
+            android:textColor="@color/colorBlack"
+            android:textSize="64dp"
             tools:text="2+2+2+2+2+2" />
     </HorizontalScrollView>
 
@@ -50,7 +51,8 @@
         android:paddingBottom="16dp"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
-        android:textSize="60sp"
+        android:textColor="@color/colorBlack"
+        android:textSize="64dp"
         app:layout_constraintBottom_toTopOf="@id/activity_home_guideline_h25"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

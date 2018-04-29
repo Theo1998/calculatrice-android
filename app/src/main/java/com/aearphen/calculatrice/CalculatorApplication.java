@@ -1,6 +1,8 @@
 package com.aearphen.calculatrice;
 
+import com.aearphen.calculatrice.data.manager.contract.ComputeManager;
 import com.aearphen.calculatrice.data.manager.contract.KeyboardManager;
+import com.aearphen.calculatrice.data.manager.impl.ComputeManagerImpl;
 import com.aearphen.calculatrice.data.manager.impl.KeyboardManagerImpl;
 import com.aearphen.calculatrice.data.repository.InputRepository;
 
@@ -13,6 +15,7 @@ public class CalculatorApplication extends android.app.Application {
 
     private static CalculatorApplication app;
     private KeyboardManager keyboardManager;
+    private ComputeManager computeManager;
     private InputRepository inputRepository;
 
     @Contract(pure = true)
@@ -30,10 +33,11 @@ public class CalculatorApplication extends android.app.Application {
 
     private void initManagers() {
         keyboardManager = new KeyboardManagerImpl(this);
+        computeManager = new ComputeManagerImpl();
     }
 
     private void initRepositories() {
-        inputRepository = new InputRepository(keyboardManager);
+        inputRepository = new InputRepository(keyboardManager, computeManager);
     }
 
     public InputRepository inputRepository() {

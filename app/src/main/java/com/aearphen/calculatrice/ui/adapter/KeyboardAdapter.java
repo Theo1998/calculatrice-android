@@ -2,14 +2,15 @@ package com.aearphen.calculatrice.ui.adapter;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.text.style.TextAppearanceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 
 import com.aearphen.calculatrice.R;
 import com.aearphen.calculatrice.data.model.KeyboardInput;
+import com.aearphen.calculatrice.ui.misc.KeyboardInputTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class KeyboardAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return keyboardInputList.get(position).getCharacterReference();
+        return keyboardInputList.get(position);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class KeyboardAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.holder_keyboard_button, parent, false);
         }
         ButterKnife.bind(holder, convertView);
-        holder.button.setText(keyboardInputList.get(position).getCharacterToDisplay());
+        holder.bind(keyboardInputList.get(position));
         return convertView;
     }
 
@@ -66,6 +67,13 @@ public class KeyboardAdapter extends BaseAdapter {
         @BindView(R.id.holder_keyboard_root)
         ConstraintLayout root;
         @BindView(R.id.holder_keyboard_button)
-        Button button;
+        KeyboardInputTextView inputTextView;
+        KeyboardInput keyboardInput;
+
+        void bind(KeyboardInput input) {
+            this.keyboardInput = input;
+            inputTextView.setText(input.getCharacterToDisplay());
+        }
+
     }
 }

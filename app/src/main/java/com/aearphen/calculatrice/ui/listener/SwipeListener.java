@@ -1,6 +1,7 @@
 package com.aearphen.calculatrice.ui.listener;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -67,7 +68,7 @@ public abstract class SwipeListener implements View.OnTouchListener {
                     result = true;
                 }
             } catch (Exception exception) {
-                exception.printStackTrace();
+                Log.w("GestureListener", "onFling: ");
             }
             return result;
         }

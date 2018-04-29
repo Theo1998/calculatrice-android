@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.aearphen.calculatrice.R;
 import com.aearphen.calculatrice.base.activity.BaseActivity;
 import com.aearphen.calculatrice.ui.fragment.KeyboardFragment;
-import com.aearphen.calculatrice.ui.listener.SwipeListener;
 import com.aearphen.calculatrice.ui.navigator.HomeNavigator;
 import com.aearphen.calculatrice.ui.presenter.HomePresenter;
 import com.aearphen.calculatrice.ui.view.HomeView;
@@ -56,5 +55,15 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeVie
     @Override
     public void launchGraphFragment() {
 
+    }
+
+    @Override
+    public void updateResult(String result) {
+        resultTextView.setText(result);
+    }
+
+    @Override
+    public void updateOperation(String operation) {
+        operationTextView.setText(operation);
     }
 }

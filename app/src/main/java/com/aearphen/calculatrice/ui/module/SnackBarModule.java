@@ -1,11 +1,8 @@
 package com.aearphen.calculatrice.ui.module;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.aearphen.calculatrice.R;
 

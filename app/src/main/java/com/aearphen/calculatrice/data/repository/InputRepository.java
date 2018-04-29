@@ -1,5 +1,6 @@
 package com.aearphen.calculatrice.data.repository;
 
+import com.aearphen.calculatrice.data.manager.contract.ComputeManager;
 import com.aearphen.calculatrice.data.manager.contract.KeyboardManager;
 import com.aearphen.calculatrice.data.model.KeyboardInput;
 
@@ -12,12 +13,22 @@ import io.reactivex.Single;
  */
 public class InputRepository {
     private final KeyboardManager keyboardManager;
+    private final ComputeManager computeManager;
 
-    public InputRepository(KeyboardManager keyboardManager) {
+    public InputRepository(KeyboardManager keyboardManager, ComputeManager computeManager) {
         this.keyboardManager = keyboardManager;
+        this.computeManager = computeManager;
     }
 
     public Single<List<KeyboardInput>> getPrimaryKeyboard() {
         return Single.just(keyboardManager.getPrimaryKeyboard());
+    }
+
+    public Single<String> computeExpression() {
+        return computeManager.computeExpression();
+    }
+
+    public Single<String> addToBuffer(KeyboardInput input) {
+        return computeManager.addToBuffer(input);
     }
 }

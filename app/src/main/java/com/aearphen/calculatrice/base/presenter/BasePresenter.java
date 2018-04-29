@@ -3,6 +3,8 @@ package com.aearphen.calculatrice.base.presenter;
 
 import com.aearphen.calculatrice.base.view.BaseView;
 
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by aearphen on 05/03/18 and developed on Aearphen_XPS
  */
@@ -10,6 +12,7 @@ import com.aearphen.calculatrice.base.view.BaseView;
 public abstract class BasePresenter<V extends BaseView> {
 
     protected final V view;
+    protected Disposable disposable;
 
     protected BasePresenter(final V view) {
         this.view = view;
@@ -25,6 +28,10 @@ public abstract class BasePresenter<V extends BaseView> {
      * Activity => onDestroy method
      * Fragment => onStop method
      */
-    public abstract void onStop();
+    public void onStop() {
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
+    }
 
 }

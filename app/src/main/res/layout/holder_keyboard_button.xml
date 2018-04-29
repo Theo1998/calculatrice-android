@@ -5,20 +5,22 @@
     android:id="@+id/holder_keyboard_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_keyboard_num_button"
-    app:layout_constraintDimensionRatio="1:1"
-    tools:layout_height="128dp"
-    tools:layout_width="128dp">
+    android:elevation="1dp"
+    app:layout_constraintDimensionRatio="1:1">
 
-    <Button
+    <com.aearphen.calculatrice.ui.misc.KeyboardInputTextView
         android:id="@+id/holder_keyboard_button"
         android:layout_width="match_parent"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="64dp"
         android:layout_height="match_parent"
-        android:background="@color/colorTransparent"
+        android:background="@drawable/bg_keyboard_num_button"
         android:elevation="1dp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/colorWhite"
-        android:textSize="64sp"
+        app:layout_constraintDimensionRatio="1:1"
+        tools:ignore="SpUsage"
         tools:text="1" />
 
 </android.support.constraint.ConstraintLayout>

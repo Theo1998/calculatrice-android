@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Aearphen on 26/04/18.
  */
 public interface KeyboardView extends BaseView {
-    void updateKeyboad(List<KeyboardInput> keyboardInputs);
+    void updateKeyboard(List<KeyboardInput> keyboardInputs);
 
     int getCurrentType();
 }
