@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:textAlignment="center"
-        android:textSize="64dp"
+        android:textSize="48dp"
         android:layout_height="match_parent"
         android:background="@drawable/bg_keyboard_num_button"
         android:elevation="1dp"

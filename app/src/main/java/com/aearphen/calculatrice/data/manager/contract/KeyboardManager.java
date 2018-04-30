@@ -9,6 +9,8 @@ import java.util.List;
  */
 public interface KeyboardManager {
 
+    String TAG = "KeyboardManager";
+
     List<KeyboardInput> getPrimaryKeyboard();
 
     List<KeyboardInput> getSecondaryKeyboard();

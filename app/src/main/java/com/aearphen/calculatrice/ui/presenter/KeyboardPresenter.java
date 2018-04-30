@@ -40,17 +40,35 @@ public class KeyboardPresenter extends BasePresenter<KeyboardView> {
     }
 
     public void computeInput(KeyboardInput input) {
-        disposable = input.getCharacterReference().equals("=") ?
-                inputRepository.computeExpression()
+        ((HomeView) view.getContext()).updateResult("");
+        switch (input.getCharacterReference()) {
+            case "DEL":
+                disposable = inputRepository.deleteLastElement()
                         .subscribeOn(Schedulers.computation())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(s -> ((HomeView) view.getContext()).updateResult(s))
-                :
-                inputRepository.addToBuffer(input)
+                        .subscribe(((HomeView) view.getContext())::updateOperation);
+                break;
+            case "AC":
+                disposable = inputRepository.clearAll()
                         .subscribeOn(Schedulers.computation())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(s -> ((HomeView) view.getContext()).updateOperation(s));
+                break;
+            case "Mod":
+                break;
+            case "=":
+                disposable = inputRepository.computeExpression()
+                        .subscribeOn(Schedulers.computation())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(s -> ((HomeView) view.getContext()).updateResult(s));
+                break;
+            default:
+                disposable = inputRepository.addToBuffer(input)
+                        .subscribeOn(Schedulers.computation())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(s -> ((HomeView) view.getContext()).updateOperation(s));
+                break;
+        }
 
     }
-
 }

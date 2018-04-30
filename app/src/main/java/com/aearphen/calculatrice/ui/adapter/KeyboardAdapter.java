@@ -2,7 +2,6 @@ package com.aearphen.calculatrice.ui.adapter;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
-import android.text.style.TextAppearanceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,8 +70,7 @@ public class KeyboardAdapter extends BaseAdapter {
         KeyboardInput keyboardInput;
 
         void bind(KeyboardInput input) {
-            this.keyboardInput = input;
-            inputTextView.setText(input.getCharacterToDisplay());
+            inputTextView.setText((this.keyboardInput = input).getCharacterToDisplay().length() > 3 && input.getCharacterToDisplay().contains("(") ? input.getCharacterToDisplay().substring(0, 3) : input.getCharacterToDisplay());
         }
 
     }

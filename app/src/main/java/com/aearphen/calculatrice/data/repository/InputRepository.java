@@ -31,4 +31,12 @@ public class InputRepository {
     public Single<String> addToBuffer(KeyboardInput input) {
         return computeManager.addToBuffer(input);
     }
+
+    public Single<String> deleteLastElement() {
+        return computeManager.deleteLastElement();
+    }
+
+    public Single<String> clearAll() {
+        return computeManager.clearBuffer();
+    }
 }

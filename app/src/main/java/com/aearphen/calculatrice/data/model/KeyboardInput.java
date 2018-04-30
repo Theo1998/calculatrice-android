@@ -20,4 +20,12 @@ public class KeyboardInput {
     public String getCharacterReference() {
         return characterReference;
     }
+
+    @Override
+    public String toString() {
+        return "KeyboardInput {" + '\n' +
+                "\tcharacterToDisplay = '" + characterToDisplay + '\'' + '\n' +
+                "\tcharacterReference = '" + characterReference + '\'' + '\n' +
+                '}';
+    }
 }
