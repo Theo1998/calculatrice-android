@@ -37,9 +37,4 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected abstract P initPresenter();
 
 
-    @Override
-    public Context getContext() {
-        return this;
-    }
-
 }

@@ -1,5 +1,6 @@
 package com.aearphen.calculatrice.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -65,5 +66,10 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeVie
     @Override
     public void updateOperation(String operation) {
         operationTextView.setText(operation);
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }

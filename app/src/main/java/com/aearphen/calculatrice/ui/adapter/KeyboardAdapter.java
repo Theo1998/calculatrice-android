@@ -1,7 +1,6 @@
 package com.aearphen.calculatrice.ui.adapter;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,11 +61,10 @@ public class KeyboardAdapter extends BaseAdapter {
         super.notifyDataSetChanged();
     }
 
-    public final class Holder {
-        @BindView(R.id.holder_keyboard_root)
-        ConstraintLayout root;
+    final class Holder {
         @BindView(R.id.holder_keyboard_button)
         KeyboardInputTextView inputTextView;
+
         KeyboardInput keyboardInput;
 
         void bind(KeyboardInput input) {
